@@ -8,8 +8,24 @@ from datetime import timedelta
 
 
 app=Flask(__name__)
-Swagger(app)
 
+
+# Add a description or instructions for using the API
+app.config['SWAGGER'] = {
+    'title': 'Shelf-Master API',
+    'description': '''
+    API Usage Steps:
+    1. Register an account by posting to `/register` with a username and password.
+    2. Login by posting to `/login` with your credentials to get a JWT token.
+    3. Use the JWT token in the Authorization header as `Bearer <your_token>` for all API requests.
+    
+    Please use the Bearer token to authenticate your requests.
+    ''',
+    'uiversion': 3,
+    'termsOfService': '/static/terms.html'
+    
+    
+}
 
 app.config['SQLALCHEMY_DATABASE_URI']="sqlite:///finalBook.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
@@ -18,7 +34,7 @@ app.config['JWT_ACCESS_TOKEN_EXPIRES']=timedelta(hours=1)
 
 db=SQLAlchemy(app)
 jwt=JWTManager(app)
-
+swagger= Swagger(app)
 # USER MODEL
 class User(db.Model):
     username=db.Column(db.String(80),primary_key=True)
