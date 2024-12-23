@@ -1,10 +1,25 @@
-# Flask API Service Starter
+# Book Management API
 
-This is a minimal Flask API service starter based on [Google Cloud Run Quickstart](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-service).
+## Description
+This is a RESTful API for managing a collection of books. The API allows users to perform CRUD operations, including creating, reading, updating, and deleting book records.
 
-## Getting Started
+## Features
+- **Add Books**: Add new books to the collection.
+- **List Books**: View all books with pagination support.
+- **Update Books**: Modify existing book details.
+- **Delete Books**: Remove books from the collection.
+- **Authentication**: Secured with JWT authentication.
+- **Database**: Uses SQLite for data storage.
 
-Server should run automatically when starting a workspace. To run manually, run:
-```sh
-./devserver.sh
-```
+## Technologies Used
+- Python (Flask Framework)
+- SQLite
+- Gunicorn (Production Server)
+
+## Live Demo
+[Visit the Live Project](https://book-manager-2hyx.onrender.com/apidocs)
+
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/deepaks-git/book-manager.git
